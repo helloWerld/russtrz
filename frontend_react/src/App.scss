@@ -36,27 +36,12 @@
     }
   }
   
-  .copyright {
-    width: 100%;
-    padding: 2rem 0 0;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-    p {
-      text-transform: uppercase;
-      color: var(--black-color);
-    }
-  }
-  
   .head-text {
     font-size: 2.75rem;
-    font-weight: 800;
     text-align: center;
     color: var(--black-color);
     text-transform: capitalize;
+    font-family: var(--font-base);
   
     span {
       color: var(--secondary-color);
@@ -72,13 +57,13 @@
   }
   
   .p-text {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     text-align: left;
     color: var(--gray-color);
     line-height: 1.5;
   
     @media screen and (min-width: 2000px) {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
     }
   }
   
@@ -102,7 +87,7 @@
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-  
+    cursor: pointer;
     padding: 1rem;
   
     div {
@@ -180,9 +165,5 @@
     .app__navigation,
     .app__social {
       display: none;
-    }
-  
-    .copyright {
-      padding: 2rem;
     }
   }

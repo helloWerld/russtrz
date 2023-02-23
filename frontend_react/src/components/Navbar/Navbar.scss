@@ -16,10 +16,11 @@
 
 .app__navbar-logo {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-
+    
     img {
+        transition: all 0.3s ease-in-out;
         width: 140px;
         height: 40px;
 
@@ -33,7 +34,7 @@
 .app__navbar-links {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
 
@@ -42,32 +43,126 @@
         cursor: pointer;
         flex-direction: column;
 
-        div {
-            width: 5px;
-            height: 5px;
-            background: transparent;
-            border-radius: 50%;
-
-            margin-bottom: 5px;
-        }
-
         a {
-            color: var(--gray-color);
+            color: var(--black-color);
             text-decoration: none;
             flex-direction: column;
             text-transform: uppercase;
             font-weight: 500;
-            transition: all 0.3s ease-in-out;
+            padding-right: 5px;
+            padding-left: 5px;
+            border-bottom: 3px solid transparent;
+            border-right: 3px solid transparent;
 
             &:hover {
-                color: var(--secondary-color);
+                font-weight: 700;
+                border-bottom: 3px solid black;
+                border-right: 3px solid black;
             }
+        }
+
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: transparent;
+            transition: all 0.5s ease-in-out;
         }
 
         &:hover {
             div {
-                background-color: var(--secondary-color);
+                background-color: var(--black-color);
             }
         }
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
+
+.app__navbar-menu {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--black-color);
+
+    svg {
+        width: 70%;
+        height: 70%;
+        color: var(--white-color);
+    }
+
+    div {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        padding: 1rem;
+        width: 80%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        background: url('../../assets/bgSidebar.png');
+        background-color: var(--white-color);
+        background-size: cover;
+        background-repeat: repeat;
+
+        box-shadow: 0 0 20px rgba(168,168,168,0.15);
+
+        svg {
+            width: 35px;
+            height: 35px;
+            color: var(--black-color);
+            margin: 0.5rem 1rem;
+        }
+
+        ul {
+            list-style:none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            li {
+                margin: 1rem;
+
+                a {
+                    color: var(--black-color);
+                    text-decoration: none;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 600;
+
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                    color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+        @media screen and (min-width: 900px) {
+            display: none;
+
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        display: none;
     }
 }
