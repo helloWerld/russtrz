@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import './Skills.scss';
-
 import './Skills.scss';
 
 const Skills = () => {
@@ -14,7 +13,7 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    const expQuery = '*[_type == "experiences"]';
+    const expQuery = '*[_type == "workExperience"]';
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(expQuery).then((data) => {
@@ -42,46 +41,41 @@ const Skills = () => {
             >
               <div className="app__flex" style={{ backgroundColor: skill.bgColor}}>
                 <img src={urlFor(skill.icon)} alt={skill.name} />
-                <p className="p-text">{skill.name}</p>
               </div>
-
+              <p className="p-text">{skill.name}</p>
             </motion.div>
 
           ))}
         </motion.div>
 
         <motion.div className="app__skills-exp">
-          {console.log(experience.works)}
           {experience?.map((experience) => (
             <motion.div 
               className="app__skills-exp-item"
-              key={experience.year}
+              key={experience.startDate}
             >
               <div className="app__skills-exp-year">
-              <p className="bold-text">{experience.year}</p>
+                <p className="bold-text">{experience.startDate}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
-                  <motion.div
-                    whileInView={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.5 }}
-                    className="app__skills-exp-work app__flex"
-                    data-tip
-                    data-for={work.name}
-                    key={work.name}
-                  >
-                    <h4 className="bold-text">{work.name}</h4>
-                    <p className="p-text">{work.company}</p>
-                    <Tooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor='#fff'
-                      className="skills-tooltip"
+                  <div key={experience.jobTitle}>
+
+                    <motion.div
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                      className="app__skills-exp-work app__flex"
+                      data-tooltip-id={experience.jobTitle}
+                      data-tooltip-content={experience.resp} 
                     >
-                      {work.description}
-                    </Tooltip>
-                  </motion.div>
-                ))}
+                      <h4 className="bold-text">{experience.jobTitle}</h4>
+                      <p className="p-text">{experience.company}</p>
+                    </motion.div>
+                    <Tooltip
+                      id={experience.jobTitle}
+                      className="skills-tooltip"
+                    />
+                  </div>
+
               </motion.div>
             </motion.div>
             ))}
@@ -91,4 +85,8 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg'
+);

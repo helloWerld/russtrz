@@ -11,7 +11,7 @@
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     position: fixed;
-    z-index: 2;
+    z-index: 50;
 }
 
 .app__navbar-logo {
@@ -49,15 +49,11 @@
             flex-direction: column;
             text-transform: uppercase;
             font-weight: 500;
-            padding-right: 5px;
-            padding-left: 5px;
-            border-bottom: 3px solid transparent;
-            border-right: 3px solid transparent;
+            border-bottom: 3px dotted transparent;
+            transition: all 0.3s ease-in-out;
 
             &:hover {
-                font-weight: 700;
-                border-bottom: 3px solid black;
-                border-right: 3px solid black;
+                border-bottom: 2px dotted black;
             }
         }
 

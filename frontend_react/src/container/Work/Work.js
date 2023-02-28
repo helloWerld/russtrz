@@ -36,12 +36,20 @@ const Work = () => {
     }, 500);
   };
 
+  const breakpointObj = {
+  3000: 6,
+  2500: 5,
+  1200: 3,
+  1000: 2,
+  500:1
+  }
+
   return (
     <>
-      <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
+      <h2 className="head-text">My Awesome <span>Portfolio</span> Projects</h2>
 
       <div className="app__work-filter">
-        {['All', 'Full Stack', 'Front End', 'Back End', 'Web App', 'Mobile App', 'Chrome Extension', 'Python', 'React JS', 'React Native', 'MERN', 'Tailwind CSS', 'Bootstrap', 'Sanity', 'Express JS', 'SQL', 'MongoDB', 'Node JS', 'REST API'].map((item, index) => (
+        {['All', 'Web App', 'Mobile App', 'Chrome Extension', 'HTML CSS JS', 'Python', 'React JS', 'Tailwind CSS', 'Sanity'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -57,55 +65,73 @@ const Work = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
-        {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
-            <div
-              className="app__work-img app__flex"
+          {filterWork.map((work, index) => (
+          <>
+            <motion.div 
+            className="app__work-item app__flex"
+            key={index}
+            whileHover={{ scale: [1, 1.01] }}
+            transition={{ duration: 0.1, ease: 'easeIn' }}
             >
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+              <div className="app__work-img app__flex">
+                <img src={urlFor(work.imgUrl)} alt={work.name} />
+                <motion.div
+                  whileHover={{ opacity: [0, 1] }}
+                  transition={{ duration: 0.2, ease: 'easeInOut', staggerChildren: 0.5 }}
+                  className="app__work-hover app__flex"
+                >
+                  <a href={work.projectLink} target="_blank" rel="noreferrer">
 
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                className="app__work-hover app__flex"
-              >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.90] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.90] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
-            </div>
-
-            <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
-
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+                    <motion.div
+                      whileInView={{ scale: [0, 1] }}
+                      whileHover={{ scale: [1, 0.9] }}
+                      transition={{ duration: 0.1 }}
+                      className="app__flex"
+                    >
+                      <AiFillEye />
+                    </motion.div>
+                  </a>
+                  <a href={work.codeLink} target="_blank" rel="noreferrer">
+                    <motion.div
+                      whileInView={{ scale: [0, 1] }}
+                      whileHover={{ scale: [1, 0.9] }}
+                      transition={{ duration: 0.1 }}
+                      className="app__flex"
+                    >
+                      <AiFillGithub />
+                    </motion.div>
+                  </a>
+                </motion.div>
               </div>
-            </div>
-          </div>
+
+              <div className="app__work-content app__flex">
+                <h4 className="bold-text">{work.title}</h4>
+                <p
+                  className="p-text"
+                  style={{
+                    marginTop: 10,
+                    color: 'lightgray',
+                    textShadow: '0 0 20px black',
+                    textAlign: 'center'
+                  }}
+                >
+                  {work.description}
+                </p>
+
+                <div className="app__work-tag app__flex">
+                  <p className="p-text">{work?.tags[0]}</p>
+                </div>
+              </div>
+              </motion.div>
+          </>
         ))}
       </motion.div>
     </>
   );
 };
 
-export default AppWrap(Work, 'work');
+export default AppWrap(
+  MotionWrap(Work, 'app__works'),
+  'work',
+  'app__primarybg'
+);

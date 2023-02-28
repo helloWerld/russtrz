@@ -44,7 +44,9 @@
     font-family: var(--font-base);
   
     span {
-      color: var(--secondary-color);
+      background: var(--gradient-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   
     @media screen and (min-width: 2000px) {

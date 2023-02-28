@@ -10,7 +10,7 @@ const scaleVariants = {
     scale: [0, 1],
     opacity: [0, 1],
     transition: {
-      duration: 1,
+      duration: 2,
       ease: 'easeInOut'
     }
   }
@@ -39,7 +39,7 @@ const Header = () => (
                 Web Developer
             </p>
             <p className="p-text">
-                Content Creator
+                SEO Strategist
               </p>
           </div>
         </div>
@@ -51,14 +51,14 @@ const Header = () => (
         className="app__header-img"
       >
         <motion.img
-            whileInView={{ x: [300, 0], opacity: [0.5,1] }}
+            whileInView={{ x: [300, 0] }}
             transition={{ duration: 1, ease: 'easeInOut' }}
             src={images.profile}
           alt="alt-profile_bg"
           />
         <motion.img
             whileInView={{ scale: [0, 1], opacity: [0,1]  }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            transition={{ duration: 4, ease: 'easeInOut' }}
             src={images.circle}
             alt="profile_circle"
             className="overlay_circle"
