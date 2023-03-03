@@ -53,7 +53,10 @@
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                border-bottom: 2px dotted black;
+                font-weight: 800;
+                background: var(--gradient-color);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
 

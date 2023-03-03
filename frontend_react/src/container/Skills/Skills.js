@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
+import Moment from 'react-moment';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
@@ -32,12 +33,12 @@ const Skills = () => {
         <motion.div
           className="app__skills-list"
         >
-          {skills?.map((skill) => (
+          {skills?.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name}
+              key={index}
             >
               <div className="app__flex" style={{ backgroundColor: skill.bgColor}}>
                 <img src={urlFor(skill.icon)} alt={skill.name} />
@@ -49,13 +50,23 @@ const Skills = () => {
         </motion.div>
 
         <motion.div className="app__skills-exp">
-          {experience?.map((experience) => (
+          {experience?.map((experience, index) => (
             <motion.div 
               className="app__skills-exp-item"
-              key={experience.startDate}
+              key={index}
             >
               <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.startDate}</p>
+                <p className="bold-text grad-text">
+                  <Moment format="MMM YYYY">
+                    {experience.startDate}
+                  </Moment>
+                  {" - "}
+                  {experience.endDate ?
+                    <Moment format="MMM YYYY">
+                      {`to ${experience.endDate}`}
+                    </Moment>
+                  : "Present"}
+                </p>
               </div>
               <motion.div className="app__skills-exp-works">
                   <div key={experience.jobTitle}>

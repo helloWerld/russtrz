@@ -40,7 +40,7 @@ const Testimonial = () => {
             <div className="app__testimonial-content">
               <p className='p-text'>{test.feedback}</p>
               <div>
-                <h4 className="bold-text">{test.name}</h4>
+                <h4 className="bold-text grad-text">{test.name}</h4>
                 <h5 className="p-text">{test.company}</h5>
               </div>
             </div>
@@ -78,5 +78,5 @@ const Testimonial = () => {
 export default AppWrap(
   MotionWrap(Testimonial, 'app__testimonial'),
   'testimonial',
-  'app__primarybg'
+  'app__whitebg'
 );

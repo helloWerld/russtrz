@@ -83,6 +83,12 @@
       font-size: 0.9rem;
     }
   }
+
+  .grad-text {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   
   .app__social {
     display: flex;
@@ -113,7 +119,7 @@
       }
   
       &:hover {
-        background-color: var(--secondary-color);
+        background: var(--gradient-color);
         border-color: var(--secondary-color);
   
         svg {
@@ -153,7 +159,7 @@
       transition: background-color 0.2s ease-in-out;
   
       &:hover {
-        background-color: var(--secondary-color);
+        background: var(--gradient-color);
       }
   
       @media screen and (min-width: 2000px) {

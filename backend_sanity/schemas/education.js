@@ -4,9 +4,16 @@ export default {
     type: 'document',
     fields: [
         {
-            name:'course',
-            title:'Course',
-            type:'string'
+            name:'programType',
+            title:'Program Type',
+            type: 'string',
+            options: {
+                list: [
+                    'University',
+                    'Bootcamp',
+                    'Online Course'
+                ]
+            }
         },
         {
             name:'school',
@@ -14,8 +21,21 @@ export default {
             type:'string'
         },
         {
-            name:'programType',
-            title:'Program Type',
+            name:'schoolImg',
+            title:'School Logo',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
+        },
+        {
+            name:'degree',
+            title:'Degree',
+            type:'string'
+        },
+        {
+            name:'course',
+            title:'Course',
             type:'string'
         },
         {

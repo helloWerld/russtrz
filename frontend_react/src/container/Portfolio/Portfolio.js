@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import './Work.scss';
+import './Portfolio.scss';
 
-const Work = () => {
-  const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
+const Portfolio = () => {
+  const [projects, setProjects] = useState([]);
+  const [filterProject, setFilterProject] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "portfolio"]';
 
     client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
+      setProjects(data);
+      setFilterProject(data);
     });
   }, []);
 
-  const handleWorkFilter = (item) => {
+  const handleProjectFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
 
@@ -29,31 +29,23 @@ const Work = () => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
       if (item === 'All') {
-        setFilterWork(works);
+        setFilterProject(projects);
       } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
+        setFilterProject(projects.filter((project) => project.tags.includes(item)));
       }
     }, 500);
   };
-
-  const breakpointObj = {
-  3000: 6,
-  2500: 5,
-  1200: 3,
-  1000: 2,
-  500:1
-  }
 
   return (
     <>
       <h2 className="head-text">My Awesome <span>Portfolio</span> Projects</h2>
 
-      <div className="app__work-filter">
+      <div className="app__project-filter">
         {['All', 'Web App', 'Mobile App', 'Chrome Extension', 'HTML CSS JS', 'Python', 'React JS', 'Tailwind CSS', 'Sanity'].map((item, index) => (
           <div
             key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            onClick={() => handleProjectFilter(item)}
+            className={`app__project-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
           >
             {item}
           </div>
@@ -63,24 +55,24 @@ const Work = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
+        className="app__project-portfolio"
       >
-          {filterWork.map((work, index) => (
-          <>
+          {filterProject.map((project, index) => (
+            <div key={index}>
             <motion.div 
-            className="app__work-item app__flex"
-            key={index}
+            className="app__project-item app__flex"
+            
             whileHover={{ scale: [1, 1.01] }}
             transition={{ duration: 0.1, ease: 'easeIn' }}
             >
-              <div className="app__work-img app__flex">
-                <img src={urlFor(work.imgUrl)} alt={work.name} />
+              <div className="app__project-img app__flex">
+                <img src={urlFor(project.imgUrl)} alt={project.name} />
                 <motion.div
                   whileHover={{ opacity: [0, 1] }}
                   transition={{ duration: 0.2, ease: 'easeInOut', staggerChildren: 0.5 }}
-                  className="app__work-hover app__flex"
+                  className="app__project-hover app__flex"
                 >
-                  <a href={work.projectLink} target="_blank" rel="noreferrer">
+                  <a href={project.projectLink} target="_blank" rel="noreferrer">
 
                     <motion.div
                       whileInView={{ scale: [0, 1] }}
@@ -91,7 +83,7 @@ const Work = () => {
                       <AiFillEye />
                     </motion.div>
                   </a>
-                  <a href={work.codeLink} target="_blank" rel="noreferrer">
+                  <a href={project.codeLink} target="_blank" rel="noreferrer">
                     <motion.div
                       whileInView={{ scale: [0, 1] }}
                       whileHover={{ scale: [1, 0.9] }}
@@ -104,26 +96,26 @@ const Work = () => {
                 </motion.div>
               </div>
 
-              <div className="app__work-content app__flex">
-                <h4 className="bold-text">{work.title}</h4>
+              <div className="app__project-content app__flex">
+                <h4 className="bold-text">{project.title}</h4>
                 <p
                   className="p-text"
                   style={{
-                    marginTop: 10,
+                    marginTop: 2,
                     color: 'lightgray',
                     textShadow: '0 0 20px black',
                     textAlign: 'center'
                   }}
                 >
-                  {work.description}
+                  {project.description}
                 </p>
 
-                <div className="app__work-tag app__flex">
-                  <p className="p-text">{work?.tags[0]}</p>
+                <div className="app__project-tag app__flex">
+                  <p className="p-text">{project?.tags[0]}</p>
                 </div>
               </div>
               </motion.div>
-          </>
+          </div>
         ))}
       </motion.div>
     </>
@@ -131,7 +123,7 @@ const Work = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Work, 'app__works'),
-  'work',
+  MotionWrap(Portfolio, 'app__portfolio'),
+  'portfolio',
   'app__primarybg'
 );
