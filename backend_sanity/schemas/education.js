@@ -4,6 +4,11 @@ export default {
     type: 'document',
     fields: [
         {
+            name:'course',
+            title:'Course',
+            type:'string'
+        },
+        {
             name:'programType',
             title:'Program Type',
             type: 'string',
@@ -31,11 +36,6 @@ export default {
         {
             name:'degree',
             title:'Degree',
-            type:'string'
-        },
-        {
-            name:'course',
-            title:'Course',
             type:'string'
         },
         {
