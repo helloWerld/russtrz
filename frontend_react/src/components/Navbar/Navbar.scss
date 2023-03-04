@@ -55,6 +55,7 @@
             &:hover {
                 font-weight: 800;
                 background: var(--gradient-color);
+                background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -153,6 +154,7 @@
                     &:hover {
                         font-weight: 800;
                         background: var(--gradient-color);
+                        background-clip: text;
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                     }

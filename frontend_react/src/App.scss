@@ -45,6 +45,7 @@
   
     span {
       background: var(--gradient-color);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -86,6 +87,7 @@
 
   .grad-text {
     background: var(--gradient-color);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
