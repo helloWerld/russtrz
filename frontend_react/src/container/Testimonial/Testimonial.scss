@@ -20,6 +20,7 @@
         height: 100px;
         border-radius: 50%;
         object-fit: cover;
+        margin: 0 1rem;
     }
 
     @media screen and (min-width: 2000px) {
@@ -31,12 +32,15 @@
         }
     }
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1200px) {
         width: 100%;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 900px) {
         flex-direction: column;
+        img {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -47,7 +51,7 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
 
     p {

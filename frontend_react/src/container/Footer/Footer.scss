@@ -32,11 +32,10 @@
             margin: 0 0.7rem;
         }
 
-        p {
-            font-weight: 600;
-        }
-
         a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             text-decoration: none;
             font-weight: 500;
             color: black;

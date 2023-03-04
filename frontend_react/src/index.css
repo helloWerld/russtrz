@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
-@font-face {
-  font-family: 'CupCakes';
-  src: url('./assets/CupCakes.otf');
-}
 
 :root {
   --font-base: 'Raleway', sans-serif;
-  --font-secondary: 'CupCakes', sans-serif;
 
   --primary-color: #edf2f8;
   --secondary-color: #B32DD0;

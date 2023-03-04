@@ -44,12 +44,16 @@ const Footer = () => {
       </h2>
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
-          <IoIosMailOpen />
-          <a href="mailto:trzruss@me.com" className="p-text">trzruss@me.com</a>
+          <a href="mailto:trzruss@me.com">
+            <IoIosMailOpen />
+            <p>trzruss@me.com</p>
+          </a>
         </div>
         <div className='app__footer-card'>
-          <IoIosPhonePortrait />
-          <a href="tel:+1 (609) 217-2562" className="p-text">(609) 217-2562</a>
+          <a href="tel:+1 (609) 217-2562">
+            <IoIosPhonePortrait />
+            <p>(609) 217-2562</p>
+          </a>
         </div>
       </div>
 

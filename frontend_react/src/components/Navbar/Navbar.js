@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
+import { BsGithub, BsLinkedin, BsDownload } from 'react-icons/bs';
+import { GiHamburger } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
@@ -24,11 +26,11 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-menu">
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
+        <GiHamburger onClick={() => setToggle(true)} />
 
         {toggle && (
           <motion.div
-            whileInView={{ x: [300, 0] }}
+            whileInView={{ x: [200, 0] }}
             transition={{ duration: 0.85, ease: 'easeOut' }}
           >
             <HiX onClick={() => setToggle(false)} />
@@ -40,6 +42,21 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="https://github.com/helloWerld" target="_blank" rel="noreferrer">
+                  <BsGithub />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/russelltrzaska/" target="_blank" rel="noreferrer">
+                  <BsLinkedin />
+                </a>
+              </li>
+              <li>
+                <a href="../assets/Russell_Trzaska_Web_developer.pdf" download>
+                  <BsDownload />
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
