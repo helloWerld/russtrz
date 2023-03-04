@@ -82,8 +82,8 @@
 }
 
 .app__navbar-menu {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     position: relative;
     display: flex;
@@ -91,10 +91,16 @@
     align-items: center;
     background: var(--black-color);
 
+    &:hover {
+        background: var(--gradient-color);
+    }
+
     svg {
         width: 70%;
         height: 70%;
-        color: var(--white-color);
+        color: white;
+
+        
     }
 
     div {
@@ -118,6 +124,7 @@
         background-repeat: repeat;
 
         box-shadow: 0 0 20px rgba(168,168,168,0.15);
+    
 
         svg {
             width: 35px;
@@ -142,21 +149,29 @@
             li {
                 margin: 1rem;
 
+                svg {
+                    color: white;
+                    &:hover {
+                        font-weight: 800;
+                        color:black;
+
+                    }
+                }
+
                 a {
-                    color: var(--black-color);
+                    color: var(--white-color);
                     text-decoration: none;
                     font-size: 1rem;
                     text-transform: uppercase;
                     font-weight: 600;
 
+
                     transition: all 0.3s ease-in-out;
 
                     &:hover {
                         font-weight: 800;
-                        background: var(--gradient-color);
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
+                        color:black;
+                        text-shadow: 0 0 25px white;
                     }
                 }
             }
