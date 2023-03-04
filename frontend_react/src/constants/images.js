@@ -8,6 +8,7 @@ import flutter from '../assets/flutter.png';
 import git from '../assets/git.png';
 import graphql from '../assets/graphql.png';
 import html from '../assets/html.png';
+import java from '../assets/java.png';
 import javascript from '../assets/javascript.png';
 import mu5 from '../assets/mu5.png';
 import node from '../assets/node.png';
@@ -27,14 +28,6 @@ import profile from '../assets/profile.png';
 import circle from '../assets/circle.png';
 import logo from '../assets/logo.png';
 
-import adidas from '../assets/adidas.png';
-import amazon from '../assets/amazon.png';
-import asus from '../assets/asus.png';
-import bolt from '../assets/bolt.png';
-import nb from '../assets/nb.png';
-import skype from '../assets/skype.png';
-import spotify from '../assets/spotify.png';
-
 export default {
   email,
   mobile,
@@ -46,6 +39,7 @@ export default {
   git,
   graphql,
   html,
+  java,
   javascript,
   mu5,
   node,
@@ -62,11 +56,4 @@ export default {
   profile,
   circle,
   logo,
-  adidas,
-  amazon,
-  asus,
-  bolt,
-  nb,
-  skype,
-  spotify,
 };

@@ -43,15 +43,15 @@ const Education = () => {
         <h2 className='head-text'>I'm <span>Educated</span></h2>
         <div className='app__education-program head-text'>
           <div onClick={() => handleEducationFilter('University')}>
-            <FaUniversity size={128}  className={(activeFilter === 'University') ? 'active-filter' : ''} />
+            <FaUniversity className={(activeFilter === 'University') ? 'active-filter' : ''} />
             <p>University</p>
           </div>
           <div onClick={() => handleEducationFilter('Bootcamp')}>
-            <FaChalkboardTeacher className={(activeFilter === 'Bootcamp') ? 'active-filter' : ''} size={128} />
+            <FaChalkboardTeacher className={(activeFilter === 'Bootcamp') ? 'active-filter' : ''} />
             <p>Bootcamp</p>
           </div>
           <div onClick={() => handleEducationFilter('Online Course')}>
-            <HiOutlineDesktopComputer className={(activeFilter === 'Online Course') ? 'active-filter' : ''} size={128} />
+            <HiOutlineDesktopComputer className={(activeFilter === 'Online Course') ? 'active-filter' : ''} />
             <p>Online Course</p>
           </div>
         </div>
@@ -64,33 +64,35 @@ const Education = () => {
           {filterEducation.map((education, index) => (
             <div className='app__education-item' key={index}>
                 <div className='app__education-years'>
-                  <Moment format="MMM YYYY">
-                    {education.startDate}
-                </Moment>
-
-                {" to "}
-
-                  {education.endDate ?
-                    <Moment format="MMM YYYY">
-                      {`to ${education.endDate}`}
-                    </Moment>
-                    : "Present"}
+                  {education.startDate ?
+                    <>
+                      <Moment format="MMM YYYY">
+                        {education.startDate}
+                      </Moment>
+                      <p> to </p>
+                    </>
+                    : <p>Issued</p>}
+                    {education.endDate ?
+                      <Moment format="MMM YYYY">
+                        {education.endDate}
+                      </Moment>
+                      : "Present"}
                 </div>  
                 <div className='app__education-school'>
                   <img src={urlFor(education.schoolImg)} />
                   <div className="app__education-block">
-                  <h3>{education.degree && `${education.degree}: `} {education.course}</h3>
+                    <h3>{education.degree && `${education.degree}: `} {education.course}</h3>
                     <p>{education.school}</p>
                     <div className="app__education-course-langs">
-                    {education?.languages?.map((language, index) => (
-                        images[language] &&
-                        <div className='app__education-img' key={index}>
-                          <img src={images[language]} />
-                        </div>
-                      ))}
+                      {education?.languages?.map((language, index) => (
+                          images[language.toLowerCase()] &&
+                          <div className='app__education-img' key={index}>
+                            <img src={images[language.toLowerCase()]} />
+                          </div>
+                        ))}
                     </div>
                   </div>
-                  </div>
+                </div>
             </div>
           ))}
       </motion.div>
