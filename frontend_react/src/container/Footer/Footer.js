@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { IoIosMailOpen, IoIosPhonePortrait } from 'react-icons/io';
 
-import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
 import './Footer.scss';
@@ -44,11 +44,11 @@ const Footer = () => {
       </h2>
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
-          <img src={images.email} alt="email" />
+          <IoIosMailOpen />
           <a href="mailto:trzruss@me.com" className="p-text">trzruss@me.com</a>
         </div>
         <div className='app__footer-card'>
-          <img src={images.mobile} alt="mobile" />
+          <IoIosPhonePortrait />
           <a href="tel:+1 (609) 217-2562" className="p-text">(609) 217-2562</a>
         </div>
       </div>

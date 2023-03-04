@@ -18,7 +18,6 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-
         margin: 1rem 0;
         padding: 1rem;
         border-radius: 10px;
@@ -26,8 +25,8 @@
         background-color: white;
 
         transition: all 0.3s ease-in-out;
-
-        img {
+        
+        svg {
             width: 60px;
             height: 60px;
             margin: 0 0.7rem;
@@ -35,7 +34,6 @@
 
         p {
             font-weight: 600;
-
         }
 
         a {
@@ -46,15 +44,21 @@
         }
 
         &:hover {
-            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            background: var(--gradient-color);
+            color: white;
+
+            a {
+                color: white;
+            }
         }
 
-        @media screen and (mas-wdith: 450px) {
+        @media screen and (max-width: 450px) {
             width: 100%;
         }
     }
 
-    @media screen and (mas-wdith: 768px) {
+    @media screen and (max-width: 768px) {
         width: 100%;
     }
 }
@@ -106,6 +110,10 @@
         margin: 2rem 0 0 0;
         font-family: var(--font-base);
         cursor: pointer;
+        
+        &:hover {
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+        }
     }
 
     @media screen and (max-width: 768px) {

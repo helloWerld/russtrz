@@ -28,7 +28,7 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">Skills and Experience</h2>
+      <h2 className="head-text">Expert <span>Skills</span> and <span>Experience</span></h2>
       <div className="app__skills-container">
         <motion.div
           className="app__skills-list"
@@ -56,7 +56,7 @@ const Skills = () => {
               key={index}
             >
               <div className="app__skills-exp-year">
-                <p className="bold-text grad-text">
+                <p className="bold-text">
                   <Moment format="MMM YYYY">
                     {experience.startDate}
                   </Moment>

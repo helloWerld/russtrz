@@ -40,7 +40,7 @@ const Education = () => {
   return (
     <>
       <div>
-        <h2 className='head-text'>I'm <span>Educated</span></h2>
+        <h2 className='head-text'>I'm Extensively <span>Educated.</span></h2>
         <div className='app__education-program head-text'>
           <div onClick={() => handleEducationFilter('University')}>
             <FaUniversity className={(activeFilter === 'University') ? 'active-filter' : ''} />
@@ -79,7 +79,7 @@ const Education = () => {
                       : "Present"}
                 </div>  
                 <div className='app__education-school'>
-                  <img src={urlFor(education.schoolImg)} />
+                <img src={urlFor(education.schoolImg)} alt={education.school} />
                   <div className="app__education-block">
                     <h3>{education.degree && `${education.degree}: `} {education.course}</h3>
                     <p>{education.school}</p>
@@ -87,7 +87,7 @@ const Education = () => {
                       {education?.languages?.map((language, index) => (
                           images[language.toLowerCase()] &&
                           <div className='app__education-img' key={index}>
-                            <img src={images[language.toLowerCase()]} />
+                            <img src={images[language.toLowerCase()]} alt={language} />
                           </div>
                         ))}
                     </div>
