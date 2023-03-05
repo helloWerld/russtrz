@@ -51,7 +51,7 @@ const Header = () => (
         className="app__header-img"
       >
         <motion.img
-            whileInView={{ x: [300, 0] }}
+            whileInView={{ x: [200, 0] }}
             transition={{ duration: 1, ease: 'easeInOut' }}
             src={images.profile}
           alt="alt-profile_bg"

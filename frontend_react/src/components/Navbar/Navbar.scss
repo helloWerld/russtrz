@@ -82,10 +82,11 @@
 }
 
 .app__navbar-menu {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    position: relative;
+    right: 1.25rem;
+    top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,90 +100,84 @@
         width: 70%;
         height: 70%;
         color: white;
-
-        
-    }
-
-    div {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 5;
-        padding: 1rem;
-        width: 80%;
-        height: 100vh;
-
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        flex-direction: column;
-
-        background: url('../../assets/bgSidebar.png');
-        background-color: var(--white-color);
-        background-size: cover;
-        background-repeat: repeat;
-
-        box-shadow: 0 0 20px rgba(168,168,168,0.15);
-    
-
-        svg {
-            width: 35px;
-            height: 35px;
-            color: var(--black-color);
-            margin: 0.5rem 1rem;
-        }
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-direction: column;
-            z-index: 10;
-
-            li {
-                margin: 1rem;
-
-                svg {
-                    color: white;
-                    &:hover {
-                        font-weight: 800;
-                        color:black;
-
-                    }
-                }
-
-                a {
-                    color: var(--white-color);
-                    text-decoration: none;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    font-weight: 600;
-
-
-                    transition: all 0.3s ease-in-out;
-
-                    &:hover {
-                        font-weight: 800;
-                        color:black;
-                        text-shadow: 0 0 25px white;
-                    }
-                }
-            }
-        }
-        @media screen and (min-width: 900px) {
-            display: none;
-
-        }
     }
 
     @media screen and (min-width: 900px) {
         display: none;
+    }
+}
+
+.app__navbar-sidebar {
+    width: 60vw;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    background: url('../../assets/bgSidebar.png');
+    background-size: cover;
+    background-repeat: repeat;
+
+    svg {
+        width: 35px;
+        height: 35px;
+        color: var(--black-color);
+        margin: 1rem 2rem;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 2rem;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        z-index: 10;
+
+        li {
+            margin: 1rem;
+
+            svg {
+                margin: 0;
+                color: white;
+                &:hover {
+                    font-weight: 800;
+                    color:black;
+                }
+            }
+
+            a {
+                color: var(--white-color);
+                text-decoration: none;
+                font-size: 1rem;
+                text-transform: uppercase;
+                font-weight: 600;
+
+
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    font-weight: 800;
+                    color:black;
+                    text-shadow: 0 0 25px white;
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 900px) {
+        display: none;
+
     }
 }

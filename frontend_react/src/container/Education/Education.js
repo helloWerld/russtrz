@@ -37,6 +37,16 @@ const Education = () => {
 
   };
 
+  const handleSchoolFilter = (school) => {
+    setAnimateCard([{ y: 100, opacity: 0 }]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+      setFilterEducation(educations.filter((education) => education.programType.includes(activeFilter) && education.school.includes(school)));
+    }, 500);
+
+  };
+
   return (
     <>
       <div>
@@ -62,7 +72,7 @@ const Education = () => {
         className='app__education-container'
       >
           {filterEducation.map((education, index) => (
-            <div className='app__education-item' key={index}>
+            <div className='app__education-item' key={index}  onClick={() => handleSchoolFilter(education.school)}>
                 <div className='app__education-years'>
                   {education.startDate ?
                     <>
@@ -79,7 +89,7 @@ const Education = () => {
                       : "Present"}
                 </div>  
                 <div className='app__education-school'>
-                <img src={urlFor(education.schoolImg)} alt={education.school} />
+                  <img src={urlFor(education.schoolImg)} alt={education.school} />
                   <div className="app__education-block">
                     <h3>{education.degree && `${education.degree}: `} {education.course}</h3>
                     <p>{education.school}</p>

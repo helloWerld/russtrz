@@ -4,6 +4,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
+    overflow: clip;
   
     // disable the default padding styles
     .app__wrapper {
@@ -188,9 +189,7 @@
       z-index: 0;
       width: 125%;
       height: 125%;
-      -webkit-filter: drop-shadow(0 0 25px rgba(0,0,0,0.2));
-      filter: drop-shadow(0 0 25px rgba(0,0,0,0.2));
-      transform: rotate(45deg);
+      overflow: clip;
     }
   
     @media screen and (max-width: 1200px) {
