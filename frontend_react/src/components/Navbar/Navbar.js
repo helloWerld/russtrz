@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
         {toggle && (
           <motion.div
-            whileInView={{ x: [200,0] }}
+            whileInView={{ opacity: [0,1] }}
             transition={{ duration: 0.85, ease: 'easeOut' }}
             className='app__navbar-sidebar'
           >

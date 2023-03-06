@@ -20,7 +20,7 @@ const Header = () => (
     <div className="app__header app__flex">
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 1 }}
         className="app__header-info"
       >
         <div className="app__header-badge">
@@ -28,7 +28,7 @@ const Header = () => (
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">
-                Hello, I am
+                Hello, I'm
               </p>
               <h1 className="head-text">Russell</h1>
             </div>
@@ -36,7 +36,7 @@ const Header = () => (
 
           <div className="tag-cmp app__flex">
             <p className="p-text">
-                Web Developer
+                Web Developer &
             </p>
             <p className="p-text">
                 SEO Strategist
@@ -49,12 +49,13 @@ const Header = () => (
         whileInView={{opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
-      >
+    >
+            {/* <img src={images.profile} alt="profile_bg" /> */}
         <motion.img
-            whileInView={{ x: [200, 0] }}
+            whileInView={{ y: [300, 0], opacity: [0,1] }}
             transition={{ duration: 1, ease: 'easeInOut' }}
             src={images.profile}
-          alt="alt-profile_bg"
+            alt="profile_bg"
           />
         <motion.img
             whileInView={{ scale: [0, 1], opacity: [0,1]  }}
