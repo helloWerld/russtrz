@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiX } from 'react-icons/hi';
 import { BsGithub, BsLinkedin, BsDownload } from 'react-icons/bs';
 import { GiHamburger } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import { client } from '../../client';
 
 import { images } from '../../constants';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [resume, setResume] = useState();
+
+  useEffect(() => {
+    const resumeQuery = '*[_type == "docs" && title == "Resume"]{ title, "resumeUrl": docFile.asset->url }';
+
+    client.fetch(resumeQuery).then((data) => {
+      setResume(data[0].resumeUrl);
+    });
+  }, []);
 
   return (
     <nav className="app__navbar">
@@ -54,7 +64,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="../assets/Russell_Trzaska_Web_developer.pdf" download>
+              <a href={`${resume}?dl=`} download>
                   <BsDownload />
                 </a>
               </li>

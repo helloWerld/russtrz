@@ -41,7 +41,7 @@ const Portfolio = () => {
       <h2 className="head-text">My Awesome <span>Portfolio</span> Projects</h2>
 
       <div className="app__project-filter">
-        {['All', 'Web App', 'Mobile App', 'Chrome Extension', 'HTML CSS JS', 'Python', 'React JS', 'Tailwind CSS', 'Sanity'].map((item, index) => (
+        {['All', 'Web App', 'Mobile App', 'Chrome Extension', 'HTML CSS JS', 'Python', 'React JS', 'Tailwind CSS', 'Sanity', 'MERN'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleProjectFilter(item)}
